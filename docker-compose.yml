@@ -1,0 +1,8 @@
+version: '3'
+services:
+  mcd-cdp-portal:
+    image: 496080199/mcd-cdp-portal
+    container_name: mcd-cdp-portal
+    restart: always
+    ports:
+      - 80:80
