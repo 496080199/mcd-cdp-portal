@@ -4,6 +4,8 @@ RUN apt update&&apt install -y build-essential git python curl&&curl -o- https:/
 
 FROM nginx:alpine
 
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 COPY --from=0 /mcd-cdp-portal/build /usr/share/nginx/html 
  
 CMD ["nginx", "-g", "daemon off;"]
