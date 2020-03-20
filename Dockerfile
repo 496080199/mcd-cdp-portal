@@ -1,8 +1,8 @@
 #FROM ubuntu:16.04
-FROM node
+FROM node:11.10
 
 #RUN apt update&&apt install -y build-essential git python curl&&curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash&&. ~/.bashrc&&nvm install 11.10&&npm install -g yarn&&git clone https://github.com/makerdao/mcd-cdp-portal.git&&cd mcd-cdp-portal&&git checkout master&&yarn&&yarn now-build
-RUN apt update&&apt install -y build-essential git python curl&&npm config set registry https://registry.npm.taobao.org/ -g&&yarn config set registry https://registry.npm.taobao.org/ -g&&git clone https://github.com/makerdao/mcd-cdp-portal.git&&cd mcd-cdp-portal&&git checkout master&&yarn&&yarn now-build
+RUN apt update&&apt install -y build-essential git python curl&&git clone https://github.com/makerdao/mcd-cdp-portal.git&&cd mcd-cdp-portal&&git checkout master&&rm -rf yarn.lock&&yarn&&yarn now-build
 
 FROM nginx:alpine
 
